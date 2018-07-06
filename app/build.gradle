@@ -1,0 +1,53 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.inmobi.showcase"
+        minSdkVersion 21
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+repositories{
+    jcenter()
+
+
+    maven { url "https://s3.amazonaws.com/moat-sdk-builds" }
+    maven {
+        url "https://maven.google.com"
+    }
+
+}
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    compile('com.mopub:mopub-sdk:5.1.0@aar') {
+        transitive = true
+    }
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.android.support:support-v4:27.1.1'
+    compile 'com.android.support:recyclerview-v7:27.1.1'
+    compile 'com.android.support:design:27.1.1'
+    compile 'com.android.support:support-annotations:27.1.1'
+    compile 'com.android.support:appcompat-v7:27.1.1'
+    compile 'com.android.support:multidex:1.0.1'
+    compile 'com.inmobi.monetization:inmobi-ads:7.1.1'
+    compile 'com.google.android.gms:play-services-base:15.0.1'
+    compile 'com.google.android.gms:play-services-ads:15.0.1'
+    compile 'com.google.android.gms:play-services-location:15.0.1'
+    compile 'com.google.android.gms:play-services-plus:15.0.1'
+    compile 'com.moat.analytics.mobile.mpub:moat-mobile-app-kit:2.4.5'
+
+
+}
+
